@@ -9,31 +9,44 @@ var LinkedList = function() {
       list.head = newNode;
       list.tail = newNode;
     }
-    list.tail.next = newNode;
+    list.tail.next = newNode.value;
     list.tail = newNode;
   };
 
   list.removeHead = function() {
     var deleted = list.head;
-    list.head = list.head.next;
+    list.head.value = list.head.next;
     return deleted.value;
   };
 
   list.contains = function(target) {
-    if (list.head.value === null) {
-      return false;
+    if (list.head.value === target) {
+      return true;
     }
+    
 
-    debugger;
-
-    for (var key in list) {
-      if (list[key].value === target) {
-        return true;
-      } else {
-        list[key].next.contains(target);
-      }
+    // while (tempHead.next !== null) {
+    //   debugger;
+    //   if (tempHead.value === target) {
+    //     return true;
+    //   } else {
+    //     tempHead = list.head.next;
+    //     if (tempHead === target) {
+    //       return true;
+    //     }
+    //   }
+    // }
+    var tempHead = list.head;
+    for (let key in tempHead) {
+      console.log(tempHead[key], key);
+      // if (tempHead.value === target) {
+      //   return true;
+      // } else {
+      //   if (tempHead.next === target) {
+        
+      //   }
+      // }
     }
-
     return false;
   };
 
