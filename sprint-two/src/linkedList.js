@@ -19,12 +19,7 @@ var LinkedList = function() {
     return deleted.value;
   };
 
-  list.contains = function(target) {
-    if (list.head.value === target) {
-      return true;
-    }
-    
-
+  list.contains = function(target) {    
     var tempHead = list.head;
     while (tempHead.next !== null) {
       if (tempHead.value === target) {
@@ -38,19 +33,6 @@ var LinkedList = function() {
     }
 
     return false;
-
-    // var tempHead = list.head;
-    // for (let key in tempHead) {
-    //   console.log(tempHead[key], key);
-    //   // if (tempHead.value === target) {
-    //   //   return true;
-    //   // } else {
-    //   //   if (tempHead.next === target) {
-        
-    //   //   }
-    //   // }
-    // }
-    // return false;
   };
 
   return list;
@@ -65,12 +47,8 @@ var Node = function(value) {
   return node;
 };
 
-// .head property, a linkedListNode instance
-// .tail property, a linkedListNode instance
-// .addToTail() method, takes a value and adds it to the end of the list
-// .removeHead() method, removes the first node from the list and returns its value
-// .contains() method, returns boolean reflecting whether or not the passed-in value is in the linked list
-
 /*
  * Complexity: What is the time complexity of the above functions?
+  addToTail and removeHead is O(1)- constant
+  contains is O(n)- linear
  */
