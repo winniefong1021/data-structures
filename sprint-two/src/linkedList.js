@@ -9,13 +9,13 @@ var LinkedList = function() {
       list.head = newNode;
       list.tail = newNode;
     }
-    list.tail.next = newNode.value;
+    list.tail.next = newNode;
     list.tail = newNode;
   };
 
   list.removeHead = function() {
     var deleted = list.head;
-    list.head.value = list.head.next;
+    list.head = list.head.next;
     return deleted.value;
   };
 
@@ -25,29 +25,32 @@ var LinkedList = function() {
     }
     
 
-    // while (tempHead.next !== null) {
-    //   debugger;
-    //   if (tempHead.value === target) {
-    //     return true;
-    //   } else {
-    //     tempHead = list.head.next;
-    //     if (tempHead === target) {
-    //       return true;
-    //     }
-    //   }
-    // }
     var tempHead = list.head;
-    for (let key in tempHead) {
-      console.log(tempHead[key], key);
-      // if (tempHead.value === target) {
-      //   return true;
-      // } else {
-      //   if (tempHead.next === target) {
-        
-      //   }
-      // }
+    while (tempHead.next !== null) {
+      if (tempHead.value === target) {
+        return true;
+      } else {
+        tempHead = tempHead.next;
+        if (tempHead.value === target) {
+          return true;
+        }
+      }
     }
+
     return false;
+
+    // var tempHead = list.head;
+    // for (let key in tempHead) {
+    //   console.log(tempHead[key], key);
+    //   // if (tempHead.value === target) {
+    //   //   return true;
+    //   // } else {
+    //   //   if (tempHead.next === target) {
+        
+    //   //   }
+    //   // }
+    // }
+    // return false;
   };
 
   return list;
