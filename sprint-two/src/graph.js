@@ -13,18 +13,25 @@ Graph.prototype.addNode = function(node) {
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
-// 6th
+  for (let k in this.collection) {
+    if (Number(k) === node) {
+      return true;
+    }
+  }
+  return false;
 };
 
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node) {
-  // create a holder var for deleted key
-  // iterate over collection
-    // if key = node
-      // iterate through removeNode's array (this.collection[key])
-      // invoke this.prototype.removeEdge(node, i)
-      // invoke this.prototype.removeEdge(i, node)
-  // delete collection key === node
+  for (let k in this.collection) {
+    if (Number(k) === node) {
+      for (let i = 0; i < this.collection[k].length; i++) {
+        
+        this.removeEdge(this.collection[k][i], node); 
+      }
+    delete this.collection[k];
+    }
+  }  
 };
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
@@ -65,15 +72,23 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
       }
     }
   }
+
+  
 };
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
-// 7th
+  for (let k in this.collection) {
+    cb.call(this, k);
+  }
 };
 
 /*
  * Complexity: What is the time complexity of the above functions?
+addNode is O(1)
+contains, addEdge are O(n)
+removeNode, hasEdge, removeEdge are O(n^2)
+forEachNode at the very minimum is O(n), depends on cb
  */
 
 
