@@ -11,33 +11,21 @@ var binaryTreeMethods = {};
 binaryTreeMethods.insert = function(value) {
   var newNode = BinarySearchTree(value);
   var inserter = function(node) {
-    if (newNode.value === node.value) return;
-    if (newNode.value < node.value) {
+    if (node.value === value) return;
+    if (node.value > newNode.value) {
       if (node.left === null) {
         node.left = newNode;
-      } else if (newNode.value < node.left.value) {
-        inserter(node.left.left);
-      } else if (newNode.value > node.left.value) {
-        if (node.left.right === null) {
-          node.left.right = newNode;
-        } else {
-          inserter(node.left.right);
-        }
+      } else {
+        inserter(node.left);
       }
     } else {
       if (node.right === null) {
         node.right = newNode;
-      } else if (newNode.value < node.right.value) {
-        if (node.right.left === null) {
-          node.right.left = newNode;
-        } else {
-          inserter(node.right.left);
-        }
-      } else if (newNode.value > node.right.value) {
-        inserter(node.right.left);
-      }     
+      } else {
+        inserter(node.right);
+      }
     }
-  };
+  };  
   inserter(this);
 };
 
@@ -79,5 +67,5 @@ binaryTreeMethods.depthFirstLog = function(cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
-All functions are O(n)
+All functions are O(logn)
  */
