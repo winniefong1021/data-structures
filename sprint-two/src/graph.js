@@ -1,5 +1,3 @@
-
-
 // Instantiate a new graph
 var Graph = function(value) {
   this.collection = {};
@@ -26,12 +24,11 @@ Graph.prototype.removeNode = function(node) {
   for (let k in this.collection) {
     if (Number(k) === node) {
       for (let i = 0; i < this.collection[k].length; i++) {
-        
-        this.removeEdge(this.collection[k][i], node); 
+        this.removeEdge(this.collection[k][i], node);
       }
     delete this.collection[k];
     }
-  }  
+  }
 };
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
@@ -40,7 +37,7 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
     if (k == fromNode) {
       if (this.collection[k].includes(toNode)) {
         return true;
-      }       
+      }
     }
   }
   return false;
@@ -72,8 +69,6 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
       }
     }
   }
-
-  
 };
 
 // Pass in a callback which will be executed on each node of the graph.

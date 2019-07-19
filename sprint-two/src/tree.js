@@ -28,19 +28,16 @@ treeMethods.contains = function(target) {
       var child = node[i];
       if (child.value === target) {
         containIt = true;
-        return containIt;  
+        return containIt;
       } else {
         findTarget(child.children);
-      } 
+      }
     }
   }
-  
 
   findTarget(this.children);
   return containIt;
 };
-
-
 
 /*
  * Complexity: What is the time complexity of the above functions?

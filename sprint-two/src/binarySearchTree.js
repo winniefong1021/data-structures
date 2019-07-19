@@ -25,12 +25,12 @@ binaryTreeMethods.insert = function(value) {
         inserter(node.right);
       }
     }
-  };  
+  };
   inserter(this);
 };
 
 binaryTreeMethods.contains = function(value) {
-  var containIt = false;   
+  var containIt = false;
   var finder = function(node) {
     if (node.value === value) {
       containIt = true;
@@ -45,7 +45,7 @@ binaryTreeMethods.contains = function(value) {
       finder(node.left);
     }
   };
-  
+
   finder(this);
   return containIt;
 };
@@ -62,8 +62,6 @@ binaryTreeMethods.depthFirstLog = function(cb) {
   };
   eachNode(this);
 };
-
-
 
 /*
  * Complexity: What is the time complexity of the above functions?

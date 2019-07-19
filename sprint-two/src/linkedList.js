@@ -19,7 +19,7 @@ var LinkedList = function() {
     return deleted.value;
   };
 
-  list.contains = function(target) {    
+  list.contains = function(target) {
     var tempHead = list.head;
     while (tempHead.next !== null) {
       if (tempHead.value === target) {
